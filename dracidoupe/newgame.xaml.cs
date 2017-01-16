@@ -184,6 +184,7 @@ namespace dracidoupe
                 player.Health = 100;
                 player.Exp = 1;
 
+            
 
                 Game = new game(player);
                 Game.Show();
