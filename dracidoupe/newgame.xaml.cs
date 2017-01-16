@@ -181,7 +181,7 @@ namespace dracidoupe
                 player.Type = PlayerTypeValue;
                 player.Gender = PlayerGenderValue;
                 player.Race = PlayerRaceValue;
-                player.Attack = rr.Next(8, 12);              
+                player.Attack = rr.Next(15, 25);              
                 player.MaxHealth = rr.Next(90, 110);
                 player.Health = player.MaxHealth;
                 player.Exp = rr.Next(1,3);

@@ -19,6 +19,7 @@ namespace dracidoupe
     /// </summary>
     public partial class game : Window
     {
+        //pridani trid + definovani promennych
         Player player;
         Enemy enemy;
         Random r = new Random();
@@ -30,15 +31,16 @@ namespace dracidoupe
             createEnemy();
             enemy.Attack = Math.Round(player.Attack * 0.9);
 
-            //MUSI BYT UPLNE DOLE!
+            
             Game();
         }
         private double randomMultiplier;
         private double randomGolds;
         private double randomVal;
+        //vytvoreni enemaka
         public void createEnemy()
         {
-            randomVal = r.Next(99, 110);
+            randomVal = r.Next(94, 110);
             randomMultiplier = randomVal/100;
             randomGolds = r.Next(30, 50);
             enemy = new Enemy();
@@ -46,13 +48,16 @@ namespace dracidoupe
             enemy.MaxHealth = Math.Round(player.Health * randomMultiplier,0);
             enemy.Health = enemy.MaxHealth;          
             enemy.Attack = Math.Round(player.Attack * randomMultiplier, 0);
-            enemy.Exp = Math.Round(player.MaxHealth / randomGolds, 0);            
+            enemy.Exp = Math.Round(player.MaxHealth / randomGolds, 0);
+            enemy.Attack += Math.Round(player.Exp / 2,0);
         }
+        //funkce na hru
         public void Game()
         {
             displayInfo();
             
         }       
+        //zobrazi info
         public void displayInfo()
         {
             PlayerFirstLeftLabel.Content = "Síla:";
@@ -77,6 +82,7 @@ namespace dracidoupe
 
             LevelLabel.Content = "Level " + level;
         }
+        //kliknuti na attack button
         private void AttackBtnClick(object sender, RoutedEventArgs e)
         {
             onAttack();
@@ -84,6 +90,7 @@ namespace dracidoupe
             displayInfo();           
             onDeath();
         }
+        //kliknuti na heal
         private void HealBtnClick(object sender, RoutedEventArgs e)
         {
 
@@ -102,12 +109,13 @@ namespace dracidoupe
             }
             displayInfo();        
         }
-        
+        //utok
         public void onAttack()
         {
             enemy.Health -= player.Attack;
             player.Health -= enemy.Attack;
         }
+        //smrt
         public void onDeath()
         {
             if (enemy.Health < 1 && player.Health > 0)
@@ -124,13 +132,14 @@ namespace dracidoupe
                 this.Close();
             }
         }
+        //vyhra
         public void onWin()
         {
             player.Exp += enemy.Exp;
-            player.MaxHealth += r.Next(20);
+            player.MaxHealth += r.Next(30,70);
             player.Attack += r.Next(10);           
             player.Health = player.MaxHealth;
-            createEnemy();
+            createEnemy();           
             level++;
         }
         
