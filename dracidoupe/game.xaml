@@ -1,0 +1,56 @@
+﻿<Window x:Class="dracidoupe.game"
+        x:Name="GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:local="clr-namespace:dracidoupe"
+        mc:Ignorable="d"
+        Title="game" Height="600" Width="600" MinHeight="600" MinWidth="600" MaxHeight="600" MaxWidth="600" ResizeMode="CanMinimize">
+    <Grid x:Name="GameGrid" Height="600" Width="600" MinHeight="600" MinWidth="600" MaxHeight="600" MaxWidth="600" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="PlayerNameLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="0" Grid.ColumnSpan="2"/>
+        
+        <Label x:Name="PlayerFirstLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="1" Grid.Column="0"/>
+        <Label x:Name="PlayerSecondLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="2" Grid.Column="0"/>
+        <Label x:Name="PlayerThirdLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="3" Grid.Column="0"/>
+        
+        <Label x:Name="PlayerFirstRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="1" Grid.Column="1"/>
+        <Label x:Name="PlayerSecondRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="2" Grid.Column="1"/>
+        <Label x:Name="PlayerThirdRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="3" Grid.Column="1"/>
+
+        <Button x:Name="AttackBtn"  Click="AttackBtnClick" HorizontalAlignment="Center" Margin="0,0,10,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button x:Name="HealBtn"  Click="HealBtnClick" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2"/>
+
+
+        <Label x:Name="EnemyNameLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2"/>
+        
+        <Label x:Name="EnemyFirstLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="1" Grid.Column="4"/>
+        <Label x:Name="EnemySecondLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="2" Grid.Column="4"/>
+        <Label x:Name="EnemyThirdLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="3" Grid.Column="4"/>
+                       
+        <Label x:Name="EnemyFirstRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="1" Grid.Column="5"/>
+        <Label x:Name="EnemySecondRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="2" Grid.Column="5"/>
+        <Label x:Name="EnemyThirdRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="3" Grid.Column="5"/>
+    </Grid>
+</Window>
