@@ -12,8 +12,8 @@ namespace dracidoupe
         private string _name;
         private double _health;
         private double _maxhealth;
-        private int _attack;
-        private int _exp;
+        private double _attack;
+        private double _exp;
         
 
         public string Name
@@ -42,7 +42,7 @@ namespace dracidoupe
             }
         }
 
-        public int Attack
+        public double Attack
         {
             get
             {
@@ -55,7 +55,7 @@ namespace dracidoupe
             }
         }
 
-        public int Exp
+        public double Exp
         {
             get
             {

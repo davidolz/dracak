@@ -34,6 +34,7 @@ namespace dracidoupe
         
         MainWindow Home;
         game Game;
+        Random rr = new Random();
        
         public newgame()
         {
@@ -180,10 +181,10 @@ namespace dracidoupe
                 player.Type = PlayerTypeValue;
                 player.Gender = PlayerGenderValue;
                 player.Race = PlayerRaceValue;
-                player.Attack = 10;
-                player.Health = 100;
-                player.MaxHealth = 100;
-                player.Exp = 10;
+                player.Attack = rr.Next(8, 12);              
+                player.MaxHealth = rr.Next(90, 110);
+                player.Health = player.MaxHealth;
+                player.Exp = rr.Next(1,3);
 
                 Game = new game(player);
                 Game.Show();

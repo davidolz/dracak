@@ -12,26 +12,22 @@ namespace dracidoupe
         private string _type;
         private string _gender;
         private string _race;
-        private int _exp;
+        private double _exp;
         private double _health;
-        private int _attack;
+        private double _attack;
         private double _maxhealth;
       
-        public string Name {get { return _name; }set{_name = value;}
-        }
-
+        public string Name {get { return _name; }set{_name = value;}}
         public string Type{get{return _type;}set{ _type = value;}}
-
         public string Gender{get{return _gender;}set{ _gender = value;}}
         public string Race{get{return _race;}set{_race = value;}}
-        public int Exp {get{ return _exp;}set{ _exp = value;}}
+        public double Exp {get{ return _exp;}set{ _exp = value;}}
         public double Health{get{return _health;}set{ _health = value;}}
         public double MaxHealth { get { return _maxhealth; } set { _maxhealth = value; } }
+        public double Attack{get{ return _attack; }set{_attack = value;}}
 
-        public int Attack{get{ return _attack; }set{_attack = value;}}
         public Player()
         {
-            string playerName = Name;
         }
        
 
