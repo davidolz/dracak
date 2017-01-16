@@ -10,9 +10,11 @@ namespace dracidoupe
     {
 
         private string _name;
-        private int _health;
+        private double _health;
+        private double _maxhealth;
         private int _attack;
         private int _exp;
+        
 
         public string Name
         {
@@ -27,7 +29,7 @@ namespace dracidoupe
             }
         }
 
-        public int Health
+        public double Health
         {
             get
             {
@@ -63,6 +65,19 @@ namespace dracidoupe
             set
             {
                 _exp = value;
+            }
+        }
+
+        public double MaxHealth
+        {
+            get
+            {
+                return _maxhealth;
+            }
+
+            set
+            {
+                _maxhealth = value;
             }
         }
     }

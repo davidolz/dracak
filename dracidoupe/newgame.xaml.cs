@@ -182,9 +182,8 @@ namespace dracidoupe
                 player.Race = PlayerRaceValue;
                 player.Attack = 10;
                 player.Health = 100;
-                player.Exp = 1;
-
-            
+                player.MaxHealth = 100;
+                player.Exp = 10;
 
                 Game = new game(player);
                 Game.Show();
