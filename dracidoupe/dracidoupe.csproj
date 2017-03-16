@@ -67,12 +67,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Class\Axe.cs" />
+    <Compile Include="Class\Armor.cs" />
     <Compile Include="Page\fightSystem.xaml.cs">
       <DependentUpon>fightSystem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interface\IDamagable.cs" />
-    <Compile Include="Class\Sword.cs" />
+    <Compile Include="Class\Weapon.cs" />
     <Page Include="Page\fightSystem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

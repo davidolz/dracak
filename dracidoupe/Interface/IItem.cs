@@ -10,8 +10,9 @@ namespace dracidoupe
     {
         string name { get; set; }
         int goldValue { get; set; }
+        int value { get; set; }
 
         void Equip();
-        void Buy();
+        void Discard();
     }
 }

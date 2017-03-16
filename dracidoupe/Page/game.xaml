@@ -7,6 +7,7 @@
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
         xmlns:local="clr-namespace:dracidoupe"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="game" Height="600" Width="600" MinHeight="600" MinWidth="600" MaxHeight="600" MaxWidth="600" ResizeMode="CanMinimize">
     <Grid x:Name="GameGrid" Height="600" Width="600" MinHeight="600" MinWidth="600" MaxHeight="600" MaxWidth="600" HorizontalAlignment="Left" VerticalAlignment="Top">
         <Grid.RowDefinitions>

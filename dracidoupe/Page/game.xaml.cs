@@ -23,8 +23,8 @@ namespace dracidoupe
         //pridani trid + definovani promennych
         Player player;
         Enemy enemy;
-        
-        
+        MainWindow MainWindow;
+
         Random r = new Random();
         private int level = 1;
         public game(Player _player)
@@ -129,7 +129,7 @@ namespace dracidoupe
             if (enemy.Health < 1 && player.Health > 0)
             {
                 
-                MessageBox.Show("PIU PIU PIU !! Si zabil", ":DDDDD");
+                
                 onWin();
                 displayInfo();           
 
@@ -137,6 +137,8 @@ namespace dracidoupe
             else if (player.Health < 1)
             {
                 MessageBox.Show("Zemřel jsi!", ":(((((");
+                MainWindow = new MainWindow();
+                MainWindow.Show();
                 this.Close();
             }
         }

@@ -6,30 +6,24 @@ using System.Threading.Tasks;
 
 namespace dracidoupe
 {
-    class Axe : IItem, IDamagable
+    class Weapon : IItem
     {
         public string name { get; set; }
         public int goldValue { get; set; }
-        public int durability { get; set; }
+        public int value { get; set; }
 
-
-        public Axe(string _name, int _goldValue, int _durability)
+        public Weapon(string _name, int _goldValue, int _value)
         {
             name = _name;
             goldValue = _goldValue;
-            durability = _durability;
+            value = _value;
         }
         public void Equip()
         {
         }
-        public void Buy()
+        public void Discard()
         {
 
         }
-        public void TakeDamage(int _dmg)
-        {
-            durability -= _dmg;
-        }
-
     }
 }
