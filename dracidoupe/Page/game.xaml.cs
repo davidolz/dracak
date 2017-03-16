@@ -19,9 +19,12 @@ namespace dracidoupe
     /// </summary>
     public partial class game : Window
     {
+        //Axe axe = new Axe("Golden Sword", 200, 200);
         //pridani trid + definovani promennych
         Player player;
         Enemy enemy;
+        
+        
         Random r = new Random();
         private int level = 1;
         public game(Player _player)
@@ -66,11 +69,13 @@ namespace dracidoupe
             AttackBtn.Content = "Útok";
             HealBtn.Content = "Uzdravit (1G)";
 
-            PlayerFirstRightLabel.Content = Math.Round(player.Attack, 2);
+            PlayerFirstRightLabel.Content = Math.Round(player.Attack, 0);
             PlayerSecondRightLabel.Content = Math.Round(player.Health, 0) + "/" + Math.Round(player.MaxHealth,0);
             PlayerThirdRightLabel.Content = Math.Round(player.Exp, 0);
             PlayerNameLabel.Content = player.Name;
-        
+            PlayerProgressBar.Value = Math.Round(player.Health, 0);
+            PlayerProgressBar.Maximum = Math.Round(player.MaxHealth, 0);
+
             EnemyFirstLeftLabel.Content = "Síla:";
             EnemySecondLeftLabel.Content = "Životy:";
             EnemyThirdLeftLabel.Content = "Odměna:";
@@ -79,6 +84,8 @@ namespace dracidoupe
             EnemySecondRightLabel.Content = Math.Round(enemy.Health, 0) + "/" + Math.Round(enemy.MaxHealth, 0);
             EnemyThirdRightLabel.Content = Math.Round(enemy.Exp, 0);
             EnemyNameLabel.Content = enemy.Name;
+            EnemyProgressBar.Value = Math.Round(enemy.Health, 0);
+            EnemyProgressBar.Maximum = Math.Round(enemy.MaxHealth, 0);
 
             LevelLabel.Content = "Level " + level;
         }
@@ -96,7 +103,8 @@ namespace dracidoupe
 
             if (player.Exp > 0 && player.Health <= player.MaxHealth * 0.9)
             {
-                player.Health += Math.Round(player.MaxHealth * 0.1, 0);
+                player.Health += player.MaxHealth * 0.1;
+                Math.Round(player.Health, 0);
                 player.Exp -= 1;
             }
             else if(player.Health >= player.MaxHealth * 0.9)

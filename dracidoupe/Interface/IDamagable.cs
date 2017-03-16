@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace dracidoupe
 {
-    interface IItem
+    interface IDamagable
     {
+        int durability { get; set; }
+        void TakeDamage(int _amount);
     }
 }

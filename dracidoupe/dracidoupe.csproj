@@ -67,15 +67,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="game.xaml">
+    <Compile Include="Class\Axe.cs" />
+    <Compile Include="Page\fightSystem.xaml.cs">
+      <DependentUpon>fightSystem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\IDamagable.cs" />
+    <Compile Include="Class\Sword.cs" />
+    <Page Include="Page\fightSystem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="loadgame.xaml">
+    <Page Include="Page\game.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Page\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -83,29 +89,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Enemy.cs" />
-    <Compile Include="game.xaml.cs">
+    <Compile Include="Class\Enemy.cs" />
+    <Compile Include="Page\game.xaml.cs">
       <DependentUpon>game.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ICharacterBonuses.cs" />
-    <Compile Include="IItem.cs" />
-    <Compile Include="loadgame.xaml.cs">
-      <DependentUpon>loadgame.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Interface\ICharacterBonuses.cs" />
+    <Compile Include="Interface\IItem.cs" />
+    <Compile Include="Page\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="newgame.xaml">
+    <Page Include="Page\newgame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="newgame.xaml.cs">
+    <Compile Include="Page\newgame.xaml.cs">
       <DependentUpon>newgame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Player.cs" />
+    <Compile Include="Class\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

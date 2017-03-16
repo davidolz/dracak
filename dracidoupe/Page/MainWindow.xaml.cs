@@ -20,8 +20,7 @@ namespace dracidoupe
     /// </summary>
     public partial class MainWindow : Window
     {
-        newgame newgame;
-        loadgame loadgame;       
+        newgame newgame;             
         public MainWindow()
         {
             InitializeComponent();
@@ -31,11 +30,6 @@ namespace dracidoupe
             newgame = new newgame();
             newgame.Show();          
             this.Close();
-        }
-        private void LoadGameClick(object sender, RoutedEventArgs e)
-        {
-            loadgame = new loadgame();
-            loadgame.Show();
         }
         private void AboutGameClick(object sender, RoutedEventArgs e)
         {
