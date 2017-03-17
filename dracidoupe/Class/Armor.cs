@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dracidoupe
 {
-    class Armor : IItem//, IDamagable
+    public class Armor : IItem//, IDamagable
     {
         
         public int goldValue { get; set; }
@@ -14,7 +14,7 @@ namespace dracidoupe
         //public int durability { get; set; }
 
 
-        public Armor(int _goldValue, int _value, int _durability)
+        public Armor(int _goldValue, int _value/*, int _durability*/)
         {
            
             goldValue = _goldValue;

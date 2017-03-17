@@ -24,11 +24,7 @@ namespace dracidoupe
         Player player;
         Enemy enemy;
         MainWindow MainWindow;
-        Armor armor0 = new Armor(0, 0, 0);
-        Armor armor1 = new Armor(10, 10, 10);
-        Weapon weapon0 = new Weapon(0, 0);      
-        Weapon weapon1 = new Weapon(10, 10);        
-
+             
         Random r = new Random();
         private int level = 1;
         public game(Player _player)
@@ -74,7 +70,7 @@ namespace dracidoupe
             AttackBtn.Content = "Útok";
             HealBtn.Content = "Uzdravit (1G)";
 
-            PlayerFirstRightLabel.Content = Math.Round(player.Attack, 0);
+            PlayerFirstRightLabel.Content = Math.Round(player.Attack + player.Weapon.value, 0);
             PlayerSecondRightLabel.Content = Math.Round(player.Health, 0) + "/" + Math.Round(player.MaxHealth,0);
             PlayerThirdRightLabel.Content = Math.Round(player.Exp, 0);
             PlayerNameLabel.Content = player.Name;
@@ -93,6 +89,7 @@ namespace dracidoupe
             EnemyProgressBar.Maximum = Math.Round(enemy.MaxHealth, 0);
 
             LevelLabel.Content = "Level " + level;
+            onRoundStart();
         }
         //kliknuti na attack button
         private void AttackBtnClick(object sender, RoutedEventArgs e)
@@ -125,21 +122,34 @@ namespace dracidoupe
         }
         private void WeaponBtnClick(object sender, RoutedEventArgs e)
         {
-            if(player.Exp + 10 >= player.Weapon.goldValue +10)
-            {                
-                player.Weapon = new Weapon(player.Weapon.value + 10, player.Weapon.goldValue + 10);
+            if(player.Exp >= player.Weapon.goldValue)
+            {
                 player.Exp -= player.Weapon.goldValue;
+                player.Weapon.value += 10;
+                player.Weapon.goldValue += 10;
+                
+                displayInfo();
             }
+            else { }
         }
         private void ArmorBtnClick(object sender, RoutedEventArgs e)
         {
-
+            if (player.Exp >= player.Armor.goldValue)
+            {
+                player.Exp -= player.Armor.goldValue;
+                player.Armor.value += 50;
+                player.Armor.goldValue += 20;
+                player.MaxHealth += 50;
+                
+                displayInfo();
+            }
+            else { }
         }
         //utok
         public void onAttack()
         {
-            enemy.Health -= player.Attack;
-            player.Health -= enemy.Attack;
+            enemy.Health -= player.Attack + player.Weapon.value;
+            player.Health -= enemy.Attack ;
         }
         //smrt
         public void onDeath()
@@ -152,9 +162,9 @@ namespace dracidoupe
                 displayInfo();           
 
             }
-            else if (player.Health < 1)
+            else if (Math.Round(player.Health,0) < 1)
             {
-                MessageBox.Show("Zemřel jsi!", ":(((((");
+                MessageBox.Show("Zemřel jsi!", ":( <3 !");
                 MainWindow = new MainWindow();
                 MainWindow.Show();
                 this.Close();
@@ -176,8 +186,8 @@ namespace dracidoupe
         {
             if(player.Health == player.MaxHealth && enemy.Health == enemy.MaxHealth)
             {
-                WeaponBtn.Content = "+10 Attack (10G)";
-                ArmorBtn.Content = "+10 Armor (10G)";            
+                WeaponBtn.Content = player.Weapon.value + " Attack (" + player.Weapon.goldValue + "G)";
+                ArmorBtn.Content = player.Weapon.value + " Armor (" + player.Weapon.goldValue + "G)";            
                 WeaponBtn.Visibility = Visibility.Visible;
                 ArmorBtn.Visibility = Visibility.Visible;
             }

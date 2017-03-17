@@ -138,7 +138,7 @@ namespace dracidoupe
         //Druhá možnost
         private void SecondBtnClick(object sender, RoutedEventArgs e)
         {
-            if (PlayerTypeAnswered == false) { PlayerTypeValue = "Mág"; PlayerTypeAnswered = true; }
+            if (PlayerTypeAnswered == false) { PlayerTypeValue = "Šermíř"; PlayerTypeAnswered = true; }
             else if (PlayerGenderAnswered == false) { PlayerGenderValue = "Žena"; PlayerGenderAnswered = true; }
             else if (PlayerRaceAnswered == false) { PlayerRaceValue = "Trpaslík"; PlayerRaceAnswered = true; }
             else { }
@@ -185,6 +185,8 @@ namespace dracidoupe
                 player.MaxHealth = rr.Next(90, 110);
                 player.Health = player.MaxHealth;
                 player.Exp = rr.Next(1,3);
+                player.Weapon = new Weapon(10, 10);
+                player.Armor = new Armor(10, 10);
 
                 Game = new game(player);
                 Game.Show();
