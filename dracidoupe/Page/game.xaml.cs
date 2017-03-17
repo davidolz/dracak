@@ -24,6 +24,8 @@ namespace dracidoupe
         Player player;
         Enemy enemy;
         MainWindow MainWindow;
+        Armor armor = new Armor("1", 10, 10, 10);
+        Weapon weapon = new Weapon("1", 10, 10);
 
         Random r = new Random();
         private int level = 1;
@@ -31,7 +33,7 @@ namespace dracidoupe
         {
             InitializeComponent();
             player = _player;            
-            createEnemy();
+            createEnemy();          
             enemy.Attack = Math.Round(player.Attack * 0.9);
 
             
@@ -43,9 +45,9 @@ namespace dracidoupe
         //vytvoreni enemaka
         public void createEnemy()
         {
-            randomVal = r.Next(94, 110);
+            randomVal = r.Next(95, 105);
             randomMultiplier = randomVal/100;
-            randomGolds = r.Next(30, 50);
+            randomGolds = r.Next(50, 75);
             enemy = new Enemy();
             enemy.Name = "Nepřítel";
             enemy.MaxHealth = Math.Round(player.Health * randomMultiplier,0);
@@ -58,7 +60,8 @@ namespace dracidoupe
         public void Game()
         {
             displayInfo();
-            
+            onRoundStart();
+
         }       
         //zobrazi info
         public void displayInfo()
@@ -96,6 +99,7 @@ namespace dracidoupe
             
             displayInfo();           
             onDeath();
+            onRoundStart();
         }
         //kliknuti na heal
         private void HealBtnClick(object sender, RoutedEventArgs e)
@@ -107,9 +111,9 @@ namespace dracidoupe
                 Math.Round(player.Health, 0);
                 player.Exp -= 1;
             }
-            else if(player.Health >= player.MaxHealth * 0.9)
+            else if(player.Health == player.MaxHealth)
             {
-                MessageBox.Show("Jsi již plně zdravý!", "Brokolice");
+                MessageBox.Show("Jsi již plně zdravý!", "!");
             }
             else if(player.Exp < 1)
             {
@@ -118,9 +122,13 @@ namespace dracidoupe
             displayInfo();        
         }
         private void WeaponBtnClick(object sender, RoutedEventArgs e)
-        { }
+        {
+
+        }
         private void ArmorBtnClick(object sender, RoutedEventArgs e)
-        { }
+        {
+
+        }
         //utok
         public void onAttack()
         {
@@ -155,6 +163,23 @@ namespace dracidoupe
             player.Health = player.MaxHealth;
             createEnemy();           
             level++;
+            
+        }
+        //zacatek kola
+        public void onRoundStart()
+        {
+            if(player.Health == player.MaxHealth && enemy.Health == enemy.MaxHealth)
+            {
+                WeaponBtn.Content = "+10 Attack (10G)";
+                ArmorBtn.Content = "+10 Armor (10G)";            
+                WeaponBtn.Visibility = Visibility.Visible;
+                ArmorBtn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                WeaponBtn.Visibility = Visibility.Collapsed;
+                ArmorBtn.Visibility = Visibility.Collapsed;
+            }
         }
         
     }
