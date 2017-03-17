@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace dracidoupe
 {
     interface IItem
-    {
-        string name { get; set; }
+    {     
         int goldValue { get; set; }
         int value { get; set; }
 

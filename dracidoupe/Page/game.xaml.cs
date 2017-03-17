@@ -24,8 +24,10 @@ namespace dracidoupe
         Player player;
         Enemy enemy;
         MainWindow MainWindow;
-        Armor armor = new Armor("1", 10, 10, 10);
-        Weapon weapon = new Weapon("1", 10, 10);
+        Armor armor0 = new Armor(0, 0, 0);
+        Armor armor1 = new Armor(10, 10, 10);
+        Weapon weapon0 = new Weapon(0, 0);      
+        Weapon weapon1 = new Weapon(10, 10);        
 
         Random r = new Random();
         private int level = 1;
@@ -123,7 +125,11 @@ namespace dracidoupe
         }
         private void WeaponBtnClick(object sender, RoutedEventArgs e)
         {
-
+            if(player.Exp + 10 >= player.Weapon.goldValue +10)
+            {                
+                player.Weapon = new Weapon(player.Weapon.value + 10, player.Weapon.goldValue + 10);
+                player.Exp -= player.Weapon.goldValue;
+            }
         }
         private void ArmorBtnClick(object sender, RoutedEventArgs e)
         {

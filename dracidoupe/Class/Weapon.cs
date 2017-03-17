@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace dracidoupe
 {
-    class Weapon : IItem
-    {
-        public string name { get; set; }
+    public class Weapon : IItem
+    {       
         public int goldValue { get; set; }
         public int value { get; set; }
 
-        public Weapon(string _name, int _goldValue, int _value)
-        {
-            name = _name;
+        public Weapon(int _goldValue, int _value)
+        {           
             goldValue = _goldValue;
             value = _value;
         }
         public void Equip()
         {
+
         }
         public void Discard()
         {

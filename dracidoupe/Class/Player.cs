@@ -16,6 +16,7 @@ namespace dracidoupe
         private double _health;
         private double _attack;
         private double _maxhealth;
+        public Weapon Weapon;      
       
         public string Name {get { return _name; }set{_name = value;}}
         public string Type{get{return _type;}set{ _type = value;}}

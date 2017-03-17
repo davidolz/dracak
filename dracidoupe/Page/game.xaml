@@ -9,59 +9,62 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Dračí doupě" Height="600" Width="600" MinHeight="600" MinWidth="600" MaxHeight="600" MaxWidth="600" ResizeMode="CanMinimize">
-    <Grid x:Name="GameGrid" Height="600" Width="600" MinHeight="600" MinWidth="600" MaxHeight="600" MaxWidth="600" HorizontalAlignment="Left" VerticalAlignment="Top">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        
-        <Label x:Name="LevelLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
-        
-        <Label x:Name="PlayerNameLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="2" Grid.ColumnSpan="2"/>
-        
-        <Label x:Name="PlayerFirstLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="4" Grid.Column="0"/>
-        <Label x:Name="PlayerSecondLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="3" Grid.Column="0"/>
-        <Label x:Name="PlayerThirdLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="5" Grid.Column="0"/>
-        
-        <Label x:Name="PlayerFirstRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="4" Grid.Column="1"/>
-        <Label x:Name="PlayerSecondRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="3" Grid.Column="1"/>
-        <Label x:Name="PlayerThirdRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="5" Grid.Column="1"/>
+    <Window.Background>
+        <ImageBrush ImageSource="Image/background.png"></ImageBrush>
+    </Window.Background>
+        <Grid x:Name="GameGrid" Height="600" Width="600" MinHeight="600" MinWidth="600" MaxHeight="600" MaxWidth="600" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-        <ProgressBar x:Name="PlayerProgressBar" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="20" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Foreground="Green"/>
+            <Label x:Name="LevelLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
 
-        <Label x:Name="EnemyNameLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
-        
-        <Label x:Name="EnemyFirstLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="4" Grid.Column="4"/>
-        <Label x:Name="EnemySecondLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="3" Grid.Column="4"/>
-        <Label x:Name="EnemyThirdLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="5" Grid.Column="4"/>
-                
-        <Label x:Name="EnemyFirstRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="4" Grid.Column="5"/>
-        <Label x:Name="EnemySecondRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="3" Grid.Column="5"/>
-        <Label x:Name="EnemyThirdRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="5" Grid.Column="5"/>
+            <Label x:Name="PlayerNameLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="2" Grid.ColumnSpan="2"/>
 
-        <ProgressBar x:Name="EnemyProgressBar" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="20" Grid.Row="2" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2" Foreground="Red"/>
-        
-        <Button x:Name="AttackBtn"  Click="AttackBtnClick" HorizontalAlignment="Center" Margin="0,0,10,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Button x:Name="HealBtn"  Click="HealBtnClick" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2"/>
+            <Label x:Name="PlayerFirstLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="4" Grid.Column="0"/>
+            <Label x:Name="PlayerSecondLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="3" Grid.Column="0"/>
+            <Label x:Name="PlayerThirdLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="5" Grid.Column="0"/>
 
-        <Button x:Name="WeaponBtn"  Click="WeaponBtnClick" HorizontalAlignment="Center" Margin="0,0,10,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Button x:Name="ArmorBtn"  Click="ArmorBtnClick" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="2"/>
+            <Label x:Name="PlayerFirstRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="4" Grid.Column="1"/>
+            <Label x:Name="PlayerSecondRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="3" Grid.Column="1"/>
+            <Label x:Name="PlayerThirdRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="5" Grid.Column="1"/>
 
-    </Grid>
+            <ProgressBar x:Name="PlayerProgressBar" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="20" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Foreground="Green"/>
+
+            <Label x:Name="EnemyNameLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Georgia" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
+
+            <Label x:Name="EnemyFirstLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="4" Grid.Column="4"/>
+            <Label x:Name="EnemySecondLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="3" Grid.Column="4"/>
+            <Label x:Name="EnemyThirdLeftLabel" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="5" Grid.Column="4"/>
+
+            <Label x:Name="EnemyFirstRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="4" Grid.Column="5"/>
+            <Label x:Name="EnemySecondRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="3" Grid.Column="5"/>
+            <Label x:Name="EnemyThirdRightLabel" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Georgia" Grid.Row="5" Grid.Column="5"/>
+
+            <ProgressBar x:Name="EnemyProgressBar" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="20" Grid.Row="2" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2" Foreground="Red"/>
+
+            <Button x:Name="AttackBtn"  Click="AttackBtnClick" HorizontalAlignment="Center" Margin="0,0,10,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Button x:Name="HealBtn"  Click="HealBtnClick" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2"/>
+
+            <Button x:Name="WeaponBtn"  Click="WeaponBtnClick" HorizontalAlignment="Center" Margin="0,0,10,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Button x:Name="ArmorBtn"  Click="ArmorBtnClick" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="2"/>
+
+        </Grid>
 </Window>
