@@ -59,8 +59,9 @@
         
         <Button x:Name="AttackBtn"  Click="AttackBtnClick" HorizontalAlignment="Center" Margin="0,0,10,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"/>
         <Button x:Name="HealBtn"  Click="HealBtnClick" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2"/>
-        
 
+        <Button x:Name="WeaponBtn"  Click="WeaponBtnClick" HorizontalAlignment="Center" Margin="0,0,10,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button x:Name="ArmorBtn"  Click="ArmorBtnClick" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="200" Height="50" FontSize="22" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

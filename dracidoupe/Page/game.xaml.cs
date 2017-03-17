@@ -117,6 +117,10 @@ namespace dracidoupe
             }
             displayInfo();        
         }
+        private void WeaponBtnClick(object sender, RoutedEventArgs e)
+        { }
+        private void ArmorBtnClick(object sender, RoutedEventArgs e)
+        { }
         //utok
         public void onAttack()
         {
