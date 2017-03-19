@@ -20,6 +20,7 @@ namespace dracidoupe
     public partial class newgame : Window
     {
         //Definování proměnných
+        private bool IntroAnswered = false;
         private string PlayerNameValue;
         private bool PlayerNameAnswered;
         private string PlayerTypeValue;
@@ -38,14 +39,18 @@ namespace dracidoupe
        
         public newgame()
         {
-            InitializeComponent();           
-            NewGameForm();
+            InitializeComponent();
+            NewGameForm(); 
+            
         }
         //Inicializace vytvoření postavy
         private void NewGameForm()
         {
+        if (IntroAnswered == true)
+        {
             if (PlayerReset == true)
             {
+                
                 PlayerNameAnswered = false;
                 PlayerTypeAnswered = false;
                 PlayerGenderAnswered = false;
@@ -69,7 +74,9 @@ namespace dracidoupe
                  PlayerGenderAnswered == true &&
                  PlayerRaceAnswered == true) { PlayerConfirm(); }
             else { }
-
+            }
+           else if (IntroAnswered == false) { Intro(); }
+           else { }
         }
         //Vytvoření jména
         private void PlayerName()
@@ -191,7 +198,7 @@ namespace dracidoupe
                 player.Health = player.MaxHealth;
                 
                 player.Weapon = new Weapon(10, 10);
-                player.Armor = new Armor(50, 10);
+                player.Armor = new Armor(10, 50);
 
                 Game = new game(player);
                 Game.Show();
@@ -220,6 +227,22 @@ namespace dracidoupe
             }
             
 
+        }
+        private void IntroBtnClick(object sender, RoutedEventArgs e)
+        {
+            IntroTextBox.Visibility = Visibility.Collapsed;
+            IntroBtn.Visibility = Visibility.Collapsed;
+            IntroAnswered = true;
+            NewGameForm();
+
+            //ShowEverything();
+        }
+        private void Intro()
+        {
+            HideEverything();
+            IntroTextBox.Visibility = Visibility.Visible;
+            IntroBtn.Visibility = Visibility.Visible;
+            IntroTextBox.Text = "„Vítej ve hře Dračí doupě! Tvým úkolem je zabíjet protivníky v aréně a porážet BOSSE ze střední průmyslové školy na Proseku! Přeju ti mnoho zdaru!“ - vypravěč";
         }
         //Ukázání tlačítek
         private void ShowButtons()
@@ -272,6 +295,31 @@ namespace dracidoupe
             SecondRightLabel.Visibility = Visibility.Collapsed;
             ThirdRightLabel.Visibility = Visibility.Collapsed;
             FourthRightLabel.Visibility = Visibility.Collapsed;
+
+        }
+        //Ukáže všechno
+        private void ShowEverything()
+        {
+            FirstBtn.Visibility = Visibility.Visible;
+            SecondBtn.Visibility = Visibility.Visible;
+            ThirdBtn.Visibility = Visibility.Visible;
+            NewGameLabel.Visibility = Visibility.Visible;
+            NameTextBox.Visibility = Visibility.Visible;
+
+            ConfirmBtn.Visibility = Visibility.Visible;
+            UnconfirmBtn.Visibility = Visibility.Visible;
+            PlayerInfoLabel.Visibility = Visibility.Visible;
+
+
+            FirstLeftLabel.Visibility = Visibility.Visible;
+            SecondLeftLabel.Visibility = Visibility.Visible;
+            ThirdLeftLabel.Visibility = Visibility.Visible;
+            FourthLeftLabel.Visibility = Visibility.Visible;
+
+            FirstRightLabel.Visibility = Visibility.Visible;
+            SecondRightLabel.Visibility = Visibility.Visible;
+            ThirdRightLabel.Visibility = Visibility.Visible;
+            FourthRightLabel.Visibility = Visibility.Visible;
 
         }
         //Zobrazení informací o hráči

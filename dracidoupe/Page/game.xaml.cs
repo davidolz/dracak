@@ -105,11 +105,11 @@ namespace dracidoupe
                 randomGolds = r.Next(50, 75);
                 enemy = new Enemy();
                 enemy.Name = "Nepřítel";
-                enemy.MaxHealth = Math.Round((((((player.Health * randomMultiplier) * randomMultiplier) * randomMultiplier) * randomMultiplier) * randomMultiplier), 0);
+                enemy.MaxHealth = Math.Round((player.Health * randomMultiplier), 0);
                 enemy.Health = enemy.MaxHealth;
-                enemy.Attack = Math.Round((((((player.Attack + player.Exp) * randomMultiplier) * randomMultiplier) * randomMultiplier) * randomMultiplier) * randomMultiplier, 0);
+                enemy.Attack = Math.Round((player.Attack + player.Exp) * randomMultiplier, 0);
                 enemy.Exp = Math.Round(enemy.MaxHealth / randomGolds, 0);
-                enemy.Attack += Math.Round((player.Exp / 5) * randomMultiplier, 0);
+                enemy.Attack += Math.Round(player.Exp / 10, 0);
             }
         }
         //funkce na hru
@@ -183,8 +183,7 @@ namespace dracidoupe
             if(player.Exp >= player.Weapon.goldValue)
             {
                 player.Exp -= player.Weapon.goldValue;
-                player.Weapon.value += 10;
-                player.Weapon.goldValue += 10;
+                player.Weapon.value += 10;                
                 
                 displayInfo();
             }
@@ -195,8 +194,7 @@ namespace dracidoupe
             if (player.Exp >= player.Armor.goldValue)
             {
                 player.Exp -= player.Armor.goldValue;
-                player.Armor.value += 50;
-                player.Armor.goldValue += 20;
+                player.Armor.value += 50;                
                 player.MaxHealth += 50;
                 player.Health += 50;
                 
@@ -241,7 +239,8 @@ namespace dracidoupe
             createEnemy();           
             if(level >= 50)
             {
-                
+                MessageBox.Show("Úspěšně jsi dohrál tuto hru!!", "!");
+                this.Close();
             }
             
         }
@@ -250,8 +249,8 @@ namespace dracidoupe
         {
             if(player.Health == player.MaxHealth && enemy.Health == enemy.MaxHealth)
             {
-                WeaponBtn.Content = player.Weapon.value + " Attack (" + player.Weapon.goldValue + "G)";
-                ArmorBtn.Content = player.Armor.value + " Health (" + player.Armor.goldValue + "G)";            
+                WeaponBtn.Content = "10 Attack (10G)";
+                ArmorBtn.Content =  "50 Health (10G)";            
                 WeaponBtn.Visibility = Visibility.Visible;
                 ArmorBtn.Visibility = Visibility.Visible;
             }
