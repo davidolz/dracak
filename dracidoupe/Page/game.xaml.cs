@@ -22,7 +22,7 @@ namespace dracidoupe
         //Axe axe = new Axe("Golden Sword", 200, 200);
         //pridani trid + definovani promennych
         Player player;
-        Enemy enemy;
+        Enemy enemy;        
         MainWindow MainWindow;
              
         Random r = new Random();
@@ -43,16 +43,74 @@ namespace dracidoupe
         //vytvoreni enemaka
         public void createEnemy()
         {
-            randomVal = r.Next(95, 105);
-            randomMultiplier = randomVal/100;
-            randomGolds = r.Next(50, 75);
-            enemy = new Enemy();
-            enemy.Name = "Nepřítel";
-            enemy.MaxHealth = Math.Round(player.Health * randomMultiplier,0);
-            enemy.Health = enemy.MaxHealth;          
-            enemy.Attack = Math.Round(player.Attack * randomMultiplier, 0);
-            enemy.Exp = Math.Round(player.MaxHealth / randomGolds, 0);
-            enemy.Attack += Math.Round(player.Exp / 2,0);
+            if (level == 10)
+            {
+                randomGolds = r.Next(40, 50);
+                enemy = new Enemy();
+                enemy.Name = "BOSS PILAŽ!";
+                enemy.MaxHealth = Math.Round(player.MaxHealth * 1.1, 0);
+                enemy.Health = enemy.MaxHealth;
+                enemy.Attack = Math.Round(player.Attack * 1.1, 0);
+                enemy.Exp = Math.Round(enemy.MaxHealth / randomGolds, 0);
+                enemy.Attack += Math.Round(player.Exp / 2, 0);
+            }
+            else if (level == 20)
+            {
+                randomGolds = r.Next(30, 40);
+                enemy = new Enemy();
+                enemy.Name = "BOSS MENEŽERIS!";
+                enemy.MaxHealth = Math.Round(player.MaxHealth * 1.2, 0);
+                enemy.Health = enemy.MaxHealth;
+                enemy.Attack = Math.Round(player.Attack * 1.2, 0);
+                enemy.Exp = Math.Round(enemy.MaxHealth / randomGolds, 0);
+                enemy.Attack += Math.Round(player.Exp / 4, 0);
+            }
+            else if (level == 30)
+            {
+                randomGolds = r.Next(20, 30);
+                enemy = new Enemy();
+                enemy.Name = "BOSS ČERT!";
+                enemy.MaxHealth = Math.Round(player.MaxHealth * 1.3, 0);
+                enemy.Health = enemy.MaxHealth;
+                enemy.Attack = Math.Round(player.Attack * 1.3, 0);
+                enemy.Exp = Math.Round(enemy.MaxHealth / randomGolds, 0);
+                enemy.Attack += Math.Round(player.Exp / 6, 0);
+            }
+            else if (level == 40)
+            {
+                randomGolds = r.Next(10, 20);
+                enemy = new Enemy();
+                enemy.Name = "BOSS PEŤAN!";
+                enemy.MaxHealth = Math.Round(player.MaxHealth * 1.4, 0);
+                enemy.Health = enemy.MaxHealth;
+                enemy.Attack = Math.Round(player.Attack * 1.4, 0);
+                enemy.Exp = Math.Round(enemy.MaxHealth / randomGolds, 0);
+                enemy.Attack += Math.Round(player.Exp / 8, 0);
+            }
+            else if (level == 50)
+            {
+                randomGolds = r.Next(1, 10);
+                enemy = new Enemy();
+                enemy.Name = "BREBURĎÁČEK!";
+                enemy.MaxHealth = Math.Round(player.MaxHealth * 2, 0);
+                enemy.Health = enemy.MaxHealth;
+                enemy.Attack = Math.Round(player.Attack * 2, 0);
+                enemy.Exp = Math.Round(enemy.MaxHealth / randomGolds, 0);
+                enemy.Attack += Math.Round(player.Exp / 10, 0);
+            }
+            else
+            {
+                randomVal = r.Next(95, 105);
+                randomMultiplier = randomVal / 100;
+                randomGolds = r.Next(50, 75);
+                enemy = new Enemy();
+                enemy.Name = "Nepřítel";
+                enemy.MaxHealth = Math.Round((((((player.Health * randomMultiplier) * randomMultiplier) * randomMultiplier) * randomMultiplier) * randomMultiplier), 0);
+                enemy.Health = enemy.MaxHealth;
+                enemy.Attack = Math.Round((((((player.Attack + player.Exp) * randomMultiplier) * randomMultiplier) * randomMultiplier) * randomMultiplier) * randomMultiplier, 0);
+                enemy.Exp = Math.Round(enemy.MaxHealth / randomGolds, 0);
+                enemy.Attack += Math.Round((player.Exp / 5) * randomMultiplier, 0);
+            }
         }
         //funkce na hru
         public void Game()
@@ -140,6 +198,7 @@ namespace dracidoupe
                 player.Armor.value += 50;
                 player.Armor.goldValue += 20;
                 player.MaxHealth += 50;
+                player.Health += 50;
                 
                 displayInfo();
             }
@@ -167,6 +226,7 @@ namespace dracidoupe
                 MessageBox.Show("Zemřel jsi!", ":( <3 !");
                 MainWindow = new MainWindow();
                 MainWindow.Show();
+                
                 this.Close();
             }
         }
@@ -177,8 +237,12 @@ namespace dracidoupe
             player.MaxHealth += r.Next(30,70);
             player.Attack += r.Next(10);           
             player.Health = player.MaxHealth;
-            createEnemy();           
             level++;
+            createEnemy();           
+            if(level >= 50)
+            {
+                
+            }
             
         }
         //zacatek kola
@@ -187,7 +251,7 @@ namespace dracidoupe
             if(player.Health == player.MaxHealth && enemy.Health == enemy.MaxHealth)
             {
                 WeaponBtn.Content = player.Weapon.value + " Attack (" + player.Weapon.goldValue + "G)";
-                ArmorBtn.Content = player.Weapon.value + " Armor (" + player.Weapon.goldValue + "G)";            
+                ArmorBtn.Content = player.Armor.value + " Health (" + player.Armor.goldValue + "G)";            
                 WeaponBtn.Visibility = Visibility.Visible;
                 ArmorBtn.Visibility = Visibility.Visible;
             }

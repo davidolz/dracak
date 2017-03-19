@@ -177,16 +177,21 @@ namespace dracidoupe
                 PlayerInfoConfirmed = true ;
 
                 Player player = new Player();
+                if(PlayerNameValue == "Petr")
+                {
+                    player.Exp = 1000;
+                }
+                else { player.Exp = rr.Next(1, 3);  }
                 player.Name = PlayerNameValue;
                 player.Type = PlayerTypeValue;
                 player.Gender = PlayerGenderValue;
                 player.Race = PlayerRaceValue;
-                player.Attack = rr.Next(15, 25);              
+                player.Attack = rr.Next(10, 20);              
                 player.MaxHealth = rr.Next(90, 110);
                 player.Health = player.MaxHealth;
-                player.Exp = rr.Next(1,3);
+                
                 player.Weapon = new Weapon(10, 10);
-                player.Armor = new Armor(10, 10);
+                player.Armor = new Armor(50, 10);
 
                 Game = new game(player);
                 Game.Show();
